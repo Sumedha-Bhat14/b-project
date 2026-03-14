@@ -32,19 +32,22 @@ app.post('/register', (req,res)=>{
 
 
 
-app.post('/login', (req,res)=>{
-    const {email,password} = req.body;
-   console.log("received data");
-   console.log(email,password);
-   res.json({message: "Login Successfull"});
-} ); 
+// app.post('/login', (req,res)=>{
+//     const {email,password} = req.body;
+//    console.log("received data");
+//    console.log(email,password);
+//    res.json({message: "Login Successfull"});
+// } ); 
 
 
 app.get('/jobs', (req, res) => {
     const jobs = [
         { title: "Frontend Developer", company: "ABCD Tech", location: "Bangalore" },
         { title: "Backend Developer", company: "XYZ Ltd", location: "Hyderabad" },
-        { title: "Full Stack Developer", company: "TechSoft", location: "Chennai" }
+        { title: "Full Stack Developer", company: "TechSoft", location: "Chennai" },
+        { title: "Data Scientist", company: "DataWorks", location: "Pune" },
+        { title: "DevOps Engineer", company: "CloudNet", location: "Gurgaon" },
+        { title: "UI/UX Designer", company: "DesignHub", location: "Mumbai" },
     ];
 
     res.json(jobs);
