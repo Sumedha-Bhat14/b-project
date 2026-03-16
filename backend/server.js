@@ -13,10 +13,11 @@
 
 
 
-const express = require('express');
-const cors = require('cors');
+import express from "express";
+import cors from "cors";
+import jobRoutes from "./routes/jobRoutes.js"; 
+import applicationRoutes from "./routes/applicationRoutes.js";
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
@@ -39,16 +40,6 @@ app.post('/register', (req,res)=>{
 //    res.json({message: "Login Successfull"});
 // } ); 
 
+app.use("/api/jobs", jobRoutes);                                                                                                    
 
-app.get('/jobs', (req, res) => {
-    const jobs = [
-        { title: "Frontend Developer", company: "ABCD Tech", location: "Bangalore" },
-        { title: "Backend Developer", company: "XYZ Ltd", location: "Hyderabad" },
-        { title: "Full Stack Developer", company: "TechSoft", location: "Chennai" },
-        { title: "Data Scientist", company: "DataWorks", location: "Pune" },
-        { title: "DevOps Engineer", company: "CloudNet", location: "Gurgaon" },
-        { title: "UI/UX Designer", company: "DesignHub", location: "Mumbai" },
-    ];
-
-    res.json(jobs);
-});
+app.use("/api/applications", applicationRoutes);
